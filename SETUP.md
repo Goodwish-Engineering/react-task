@@ -9,6 +9,8 @@
    cd my-blog-app
 
 2. **Run in your terminal of vs code**
+
+    ```bash
     npm install
 
 3.  npm run dev
