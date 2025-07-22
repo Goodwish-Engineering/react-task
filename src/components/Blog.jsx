@@ -17,20 +17,29 @@ export const Blog = () => {
   if (error) {
     return <p>Error fetching data</p>;
   }
-
+  const filteredBlog = data.filter(blog =>
+    blog.title.toLowerCase().includes(search.toLowerCase())
+  );
   return (
-    <div className="max-w-7xl mx-auto mt-20" >
-    
+    <div className="max-w-8xl mx-auto  p-10" >
+        <p className="flex justify-center font-bold text-3xl lg:text-4xl mb-3 md:mb-6 lg:mb-10 "> Blog Posts</p>
       <input
-        className="border flex  mx-auto w-1/3 lg:w-1/5 h-10 p-5"
+        className="border flex   mx-auto w-1/3 lg:w-1/5 h-10 p-5"
         type="text"
         placeholder="Search by title"
         value={search}
         onChange={(event) => setSearch(event.target.value)}
       />
-      {data.map((item) => (
-        <p key={item.id}>{item.title}</p>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-6 mt-10">
+      {filteredBlog.map((item) => (
+      
+        <div key={item.id} className="mb-10 shadow hover:shadow-2xl px-5 py-4  transition duration-300  ease-in-out">
+            <p className="mb-5 font-bold text-xl">{item.title}</p>
+        <p>{item.body}</p>
+       </div>
       ))}
+        </div>
     </div>
   );
 };
