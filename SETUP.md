@@ -13,4 +13,6 @@
     ```bash
     npm install
 
-3.  npm run dev
+
+3.  ```bash
+ npm run dev
