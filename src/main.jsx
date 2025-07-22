@@ -2,9 +2,12 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
+import { BlogProvider } from './components/BlogContext'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <BlogProvider>
+      <App />
+    </BlogProvider>
   </StrictMode>,
 )
