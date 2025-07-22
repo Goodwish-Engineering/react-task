@@ -1,14 +1,18 @@
 
 import './App.css'
-
+import { Blog } from './components/Blog'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
 
   return (
-    <>
-     <h1 class="text-3xl text-red-100 font-bold underline">
-    Hello world!
-  </h1>
-    </>
+      <BrowserRouter>
+      <Routes>
+       
+        <Route path="/" element={<Blog />} />
+       
+      </Routes>
+    </BrowserRouter>
+    
   )
 }
 
