@@ -1,13 +1,13 @@
-import { useState, useContext } from "react";
+import { useState,} from "react";
+import { useBlogContext } from "./BlogContext";
 import useSWR from "swr";
-import { BlogContext } from "./BlogContext";
 import BlogModal from "./BlogModal";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export const Blog = () => {
   const [search, setSearch] = useState("");
-  const { selectedBlog, setSelectedBlog } = useContext(BlogContext);
+  const { selectedBlog, setSelectedBlog } = useBlogContext();
   const { data, error } = useSWR(
     "https://jsonplaceholder.typicode.com/posts",
     fetcher

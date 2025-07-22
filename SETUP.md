@@ -8,7 +8,7 @@
    git clone https://github.com/Roshik9841/react-task.git
    cd my-blog-app
 
-2. **Run in your terminal of vs code**
+2. **Run in your terminal**
 
     ```bash
     npm install
