@@ -32,13 +32,13 @@ export const Blog = () => {
       </p>
      
       <input
-        className="border flex mx-auto w-1/3 lg:w-1/5 h-10 p-5"
+        className="border flex mx-auto w-1/3 lg:w-1/5 h-10 p-5 sm:text-sm"
         type="text"
         placeholder="Search by title"
         value={search}
         onChange={e => setSearch(e.target.value)}
       />
-      {/* Blog List */}
+   
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-10">
         {filteredBlog.map((blog) => (
           <div

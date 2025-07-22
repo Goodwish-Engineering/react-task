@@ -1,9 +1,14 @@
-npm install
+# Setup Instructions
 
-npm install tailwindcss @tailwindcss/vite
+1. **Clone the repository**
 
-npm install swr
+   Open your terminal or VS Code command prompt and run:
 
-npm install react-router-dom
+   ```bash
+   git clone https://github.com/Roshik9841/react-task.git
+   cd my-blog-app
 
-npm run dev
+2. **Run in your terminal of vs code**
+    npm install
+
+3.  npm run dev
