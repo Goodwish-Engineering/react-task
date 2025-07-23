@@ -16,7 +16,7 @@ const Pagination = ({
 }: PaginationProps) => {
   const renderPageNumbers = () => {
     const pageNumbers = [];
-    const maxVisiblePages = 4;
+    const maxVisiblePages = 3;
     let startPage = 1;
     let endPage = totalPages;
 
@@ -100,7 +100,7 @@ const Pagination = ({
   if (totalBlogs <= blogsPerPage) return null;
 
   return (
-    <div className="flex justify-center items-center mt-10 space-x-2">
+    <div className="flex justify-center items-center text-sm  mt-10 space-x-2">
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
