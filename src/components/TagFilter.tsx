@@ -7,7 +7,7 @@ type TagFilterProps = {
 const TagFilter = ({ tags, selectedTags, onTagClick }: TagFilterProps) => {
   return (
     <div className="mb-8">
-      <div className="grid grid-cols-4 md:grid-cols-6 lg:flex lg:flex-wrap gap-3">
+      <div className="grid grid-cols-3 md:grid-cols-6 lg:flex lg:flex-wrap gap-3">
         {tags.map((tag) => (
           <button
             key={tag}
