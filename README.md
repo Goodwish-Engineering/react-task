@@ -19,3 +19,6 @@
 - Extra libraries used are axios for API calls, react-icons for icons, and react-router for routing.  
 - Used DummyJson posts API to simulate blog posts. API: https://dummyjson.com/posts  
 - Implemented pagination and blog filtration based on tags.  
+
+## Live Demo  
+[Blog App](https://react-task-manish-kc.vercel.app/)  
