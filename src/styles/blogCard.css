@@ -1,0 +1,25 @@
+.blog_card {
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  transition: box-shadow 0.3s ease;
+  background-color: #fff;
+}
+
+.blog_card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.blog_card_title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: black;
+}
+
+.blog_card_body {
+  font-size: 1rem;
+  color: gray;
+  line-height: 1.4;
+}

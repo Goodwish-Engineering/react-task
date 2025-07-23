@@ -1,0 +1,35 @@
+.blogs_section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.section_title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #222;
+}
+
+.blogs_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.search_container {
+  margin: 20px auto;
+  width: 100%;
+  max-width: 400px;
+  padding: 0 1rem;
+}
+
+.search_container input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 16px;
+  border: 1px solid gray;
+  border-radius: 6px;
+  outline: none;
+}
