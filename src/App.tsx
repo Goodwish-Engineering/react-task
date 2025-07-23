@@ -24,9 +24,12 @@ const App = () => {
         setBlogs(data);
         setLoading(false);
       } catch (err) {
-        setError("Failed to fetch posts");
+        if (err instanceof Error) {
+          setError(err.message || "Failed to fetch blog post");
+        } else {
+          setError("Failed to fetch blog post");
+        }
         setLoading(false);
-        console.error(err);
       }
     };
 

@@ -14,6 +14,7 @@
 ## Assumptions
 
 - Project is made in Vite+React and for styling Tailwind CSS is used.  
+- Proper loading state and error handling
 - Extra libraries used are axios for API calls, react-icons for icons, and react-router for routing.  
 - Used DummyJson posts API to simulate blog posts. API: https://dummyjson.com/posts  
 - Implemented pagination and blog filtration based on tags.  
