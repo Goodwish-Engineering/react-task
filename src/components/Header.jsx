@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
 import '../App.css'
-import { useState } from "react";
-const Header = () => {
-    const [searchTerm,setSearchTerm]=useState('');
+
+const Header = ({searchTerm,onSearch}) => {
+    
     const handleChange=(event)=>{
         setSearchTerm(event.target.value);
         
     }
     const handleKeyDown=(event)=>{
         if(event.key==='Enter'){
-           
-            console.log(searchTerm);
+           event.preventDefault();
+            onSearch(searchTerm);
         }
 
     }

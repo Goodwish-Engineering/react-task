@@ -83,3 +83,24 @@ body{
 .blogcard button:hover {
   transform: scale(1.1);
 }
+.post-detail{
+  margin-top:100px;
+  height:auto;
+  width:auto;
+  min-height:400px;
+  padding:10px 10px 10px 10px;
+  background-color: white;
+  border-radius: 15px;
+  border:3px solid #e0cffe;
+ 
+
+}
+.posttitle{
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  
+}
+.postbody{
+  font-size: larger;
+}
