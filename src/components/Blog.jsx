@@ -1,23 +1,16 @@
 import { useState } from "react";
 import { useBlogContext } from "./BlogContext";
-import useSWR from "swr";
 import BlogModal from "./BlogModal";
 import Pagination from "./Pagination";
 
-const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export const Blog = () => {
   const [search, setSearch] = useState("");
-  const { selectedBlog, setSelectedBlog } = useBlogContext();
+  const {allBlogs,error,isLoading, selectedBlog, setSelectedBlog } = useBlogContext();
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 10;
 
-  const { data, error } = useSWR(
-    "https://jsonplaceholder.typicode.com/posts",
-    fetcher
-  );
-
-  if (!data && !error) {
+  if (isLoading) {
     return <p>Loading...</p>;
   }
 
@@ -25,7 +18,7 @@ export const Blog = () => {
     return <p>Error fetching data</p>;
   }
 
-  const filteredBlog = data.filter((blog) =>
+  const filteredBlog = allBlogs?.filter((blog) =>
     blog.title.toLowerCase().includes(search.toLowerCase())
   );
 
@@ -42,7 +35,7 @@ export const Blog = () => {
       </p>
 
       <input
-        className="border flex mx-auto w-1/3 lg:w-1/5 h-10 p-5 sm:text-sm"
+        className="border flex mx-auto w-1/3 lg:w-1/5 h-10 p-5 sm:text-sm rounded-lg"
         type="text"
         placeholder="Search by title"
         value={search}
@@ -73,7 +66,7 @@ export const Blog = () => {
       />
 
       {selectedBlog && (
-        <BlogModal blog={selectedBlog} onClose={() => setSelectedBlog(null)} />
+        <BlogModal />
       )}
     </div>
   );
