@@ -41,7 +41,6 @@ export const BlogModal: React.FC = () => {
     >
       <div
         className="bg-white rounded-xl w-full max-w-2xl sm:max-w-lg md:max-w-xl lg:max-w-3xl max-h-[90vh] overflow-y-auto shadow-lg animate-fadeIn"
-        // onClick={(e) => e.stopPropagation()}
       >
         <div className="sticky top-0 bg-white border-b px-4 sm:px-6 py-3 flex items-center justify-between z-10">
           <h2 className="text-lg sm:text-xl font-semibold text-gray-900">

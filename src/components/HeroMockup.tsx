@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
 
 const Mockup: React.FC = () => {
   return (
     <div>
-      {/* Hero Image/Mockup */}
       <div>
         <div className="relative max-w-6xl my-10 mx-auto">
           <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
@@ -33,6 +32,6 @@ const Mockup: React.FC = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Mockup
+export default Mockup;

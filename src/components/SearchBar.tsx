@@ -1,14 +1,11 @@
 import type React from "react";
 import { IoIosSearch } from "react-icons/io";
 import { useBlogStore } from "../store/blogStore";
-// import { useDebounce } from "../hooks/useDebounce";
 
 const SearchBar: React.FC = () => {
-const searchInput = useBlogStore((state) => state.searchTerm);
-const setSearchInput = useBlogStore((state) => state.setSearchTerm);
+  const searchInput = useBlogStore((state) => state.searchTerm);
+  const setSearchInput = useBlogStore((state) => state.setSearchTerm);
 
-
-  // const debouncedSearch = useDebounce(searchInput, 300);
   return (
     <div className="relative max-w-md  sm:w-auto">
       <div className="absolute inset-y-0 left-0 pl-1 flex items-center">

@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const HeroSection : React.FC= () => {
+const HeroSection: React.FC = () => {
   const navigate = useNavigate();
   return (
     <section
@@ -20,9 +20,7 @@ const HeroSection : React.FC= () => {
           Explore a world of ideas, stories, and knowledge. From tech talk to
           life tales, your blog belongs here.
         </p>
-        {/* <div className="max-w-md mx-auto">
-            <SearchBar />
-          </div> */}
+
         <button
           onClick={() => navigate("/blogs")}
           className="mt-6 bg-white text-blue-700 hover:bg-blue-100 cursor-pointer transition px-6 py-3 rounded-full font-semibold"

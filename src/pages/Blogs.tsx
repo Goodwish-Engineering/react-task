@@ -1,35 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { BlogList } from "../components/BlogList";
 import { BlogModal } from "../components/BlogModal";
-// import Navbar from "../components/Navbar";
 import SearchBar from "../components/SearchBar";
 
 const Blogs: React.FC = () => {
+  const [categories, setCategories] = useState<string[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
-   const [categories, setCategories] = useState<string[]>([]);
-    const [selectedCategory, setSelectedCategory] = useState<string>("All");
-  
-    // Simulate fetching categories (or you can get from your store/api)
-    useEffect(() => {
-      // Example categories - you should replace with real categories from posts
-      setCategories([
-        "All",
-        "history",
-        "american",
-        "crime",
-        "french",
-        "fiction",
-        "english",
-        "magical",
-        "love",
-        "mystery",
-      ]);
-    }, []);
+  useEffect(() => {
+    setCategories([
+      "All",
+      "history",
+      "american",
+      "crime",
+      "french",
+      "fiction",
+      "english",
+      "magical",
+      "love",
+      "mystery",
+    ]);
+  }, []);
   return (
     <div className="mx-auto max-w-6xl">
-      {/* <Navbar /> */}
       <div className="bg-blue flex flex-col lg:flex-row lg:items-center lg:justify-between px-4 sm:px-6 md:px-8 mt-6 gap-4">
-        {/* Left Section: Title & Tagline */}
         <div className="text-center lg:text-left">
           <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900">
             Where every wish finds its words.
@@ -66,15 +60,13 @@ const Blogs: React.FC = () => {
           </ul>
         </div>
 
-        {/* Blog list area */}
         <div className="flex-1">
-          {/* Pass selectedCategory prop to BlogList */}
           <BlogList selectedCategory={selectedCategory} />
           <BlogModal />
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default Blogs
+export default Blogs;

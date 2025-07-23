@@ -1,9 +1,11 @@
 import React from "react";
 
-const Error: React.FC = ({
-  message = "No Blogs Found. Try Searching with another terms...",
-}: {
+interface ErrorProps {
   message?: string;
+}
+
+const Error: React.FC<ErrorProps> = ({
+  message = "No Blogs Found. Try Searching with another terms...",
 }) => {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">

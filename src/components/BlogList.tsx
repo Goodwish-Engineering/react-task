@@ -63,13 +63,10 @@ export const BlogList: React.FC<BlogListProps> = ({ selectedCategory }) => {
 
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Loading */}
       {loading && (
-        // <p className="text-center text-gray-500 mb-4">Loading posts...</p>
         <Loading />
       )}
 
-      {/* Error */}
       {error && <Error message={error} />}
 
       {/* Search result info */}

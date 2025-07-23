@@ -18,11 +18,15 @@ export const Pagination: React.FC<PaginationProps> = ({
     const pages: (number | string)[] = [];
 
     if (totalPages <= 7) {
+      // Case 1: Less than or equal to 7 pages → show all
       for (let i = 1; i <= totalPages; i++) pages.push(i);
     } else {
+      // Case 2: More than 7 pages → show ellipsis format
       if (currentPage <= 4) {
+        // Beginning section: show first 5, ellipsis, and last page
         pages.push(1, 2, 3, 4, 5, "...", totalPages);
       } else if (currentPage >= totalPages - 3) {
+        // Ending section: show first page, ellipsis, and last 5
         pages.push(
           1,
           "...",
@@ -33,6 +37,7 @@ export const Pagination: React.FC<PaginationProps> = ({
           totalPages
         );
       } else {
+        // Middle section: show first, ellipsis, current ±1, ellipsis, last
         pages.push(
           1,
           "...",
@@ -51,13 +56,14 @@ export const Pagination: React.FC<PaginationProps> = ({
   return (
     <div className="flex justify-center items-center gap-1 flex-wrap px-4 py-4">
       <button
-        onClick={() => setCurrentPage(currentPage - 1)}
+        onClick={() => setCurrentPage(currentPage - 1)} //go to previous page
         disabled={currentPage === 1}
         className="px-3 py-2 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         <FaAngleLeft />
       </button>
 
+      {/* dynamically generates page buttons */}
       {generatePageNumbers().map((page, idx) =>
         typeof page === "number" ? (
           <button
@@ -79,7 +85,7 @@ export const Pagination: React.FC<PaginationProps> = ({
       )}
 
       <button
-        onClick={() => setCurrentPage(currentPage + 1)}
+        onClick={() => setCurrentPage(currentPage + 1)} //move to next page
         disabled={currentPage === totalPages}
         className="px-3 py-2 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
       >
