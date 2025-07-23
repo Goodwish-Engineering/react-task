@@ -1,34 +1,69 @@
-# react-task
+# React + TypeScript + Vite
 
-### Title: Build a Responsive Mini Blog App
-**Goal:** Test HTML/CSS skills, React/JavaScript fundamentals, familiarity with libraries/frameworks and responsiveness.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-#### Task Description
+Currently, two official plugins are available:
 
-Create a blog website using **React** that displays a list of blog posts.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-#### Requirements
+## Expanding the ESLint configuration
 
-- **Display list of blog posts**
-Show each post's **title** and a **preview of the body** in card or list format.
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-- **Clickable post**
-When a post is clicked, show the full content in a **new page** or **modal**.
+```js
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-- **Responsive design**
-The layout should work well on both **mobile** and **desktop**.
+      // Remove tseslint.configs.recommended and replace with this
+      ...tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      ...tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      ...tseslint.configs.stylisticTypeChecked,
 
-#### Nice to Have
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-- API integration (e.g., with `jsonplaceholder.typicode.com/posts`)
-- Global state management
-- Pagination or search/filter functionality
-- Loading and error states
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-#### Submission
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-- Fork the repository, complete the task, and submit a **Pull Request** with clear and meaningful commit history.
-- The task is to be submitted within 2 days.
-- Include a `SETUP.md` file with the following:
-- **Setup instructions** for running the project.
-- **Any assumptions** you made or known **limitations** of the current implementation.
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
