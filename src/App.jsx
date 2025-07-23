@@ -1,5 +1,12 @@
-import BlogList from "./components/BlogList"
-import Layout from "./Layout"
-export default function App(){
-  return <Layout><BlogList/></Layout>
+import Layout from "./Layout";
+import ErrorBoundary from "./components/ErrorBoundary";
+
+export default function App() {
+  return (
+    <>
+      <ErrorBoundary>
+          <Layout/>
+      </ErrorBoundary>
+    </>
+  );
 }
