@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import BlogItem from "../component/BlogItem";
 import "../styles/BlogList.css";
+import { useNavigate } from "react-router-dom";
 
 const BlogList = () => {
   const [posts, setPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const fetchPosts = () => {
     setLoading(true);
@@ -57,7 +59,7 @@ const BlogList = () => {
 
       <div className="blog-list">
         {!loading && !error && posts.map((post) => (
-          <BlogItem key={post.id} post={post} />
+          <BlogItem key={post.id} post={post} onReadMore={() => navigate(`/blog/${post.id}`)} />
         ))}
       </div>
     </div>

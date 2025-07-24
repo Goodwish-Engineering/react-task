@@ -1,14 +1,13 @@
 
-import BlogList from "./pages/BlogList"
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./router/index";
 
 function App() {
   return (
-    <>
- 
-  <BlogList /> 
-
-    </>
-  )
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  );
 }
 
 export default App
