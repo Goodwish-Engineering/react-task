@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import { useNavigate, useNavigation } from "react-router-dom";
+import { Context } from "../../Context/Context";
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const api = import.meta.env.VITE_API;
   const [userName, setUserName] = useState("test");
   const [password, setPassword] = useState("test123");
+  const { setIsLoggedIn } = useContext(Context);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,6 +20,7 @@ const LoginPage = () => {
       if (res.data.message) {
         localStorage.setItem("token", res.data.id);
         alert(res.data.message);
+        setIsLoggedIn(true);
         navigate("/");
       }
     } catch (e) {

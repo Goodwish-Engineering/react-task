@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "./Pages/LoginPage";
 import HomePage from "./Pages/HomePage";
@@ -8,29 +8,19 @@ import Layout from "./Pages/Layout";
 import ViewBlog from "./Pages/ViewBlog";
 import BlogDetail from "./Pages/BlogDetail";
 import Signup from "./Pages/Signup";
+import { Context } from "../Context/Context";
 
 const MyRoutes = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  useEffect(() => {
-    const checkToken = () => {
-      const token = localStorage.getItem("token");
-      if (token) {
-        setIsLoggedIn(true);
-      }
-    };
-    checkToken();
-  }, []);
+  const { isLoggedIn } = useContext(Context);
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/signin" element={<LoginPage />} />
-          <Route path="/signup" element={<Signup/>}/>
+          <Route path="/signup" element={<Signup />} />
           <Route
             path="/"
-            element={
-              isLoggedIn ? <Layout /> : <Navigate to="/signin" replace />
-            }
+            element={isLoggedIn ? <Layout /> : <Navigate to="/signin" />}
           >
             <Route index element={<HomePage />} />
             <Route path="/create" element={<CreateBlog />} />

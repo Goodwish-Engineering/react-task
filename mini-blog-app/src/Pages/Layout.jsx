@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Context } from "../../Context/Context";
 
 const Layout = () => {
   const navigate = useNavigate();
+  const { setIsLoggedIn } = useContext(Context);
 
   const handleClick = async () => {
     localStorage.removeItem("token");
+    setIsLoggedIn(false);
     navigate("/signin");
   };
   return (
