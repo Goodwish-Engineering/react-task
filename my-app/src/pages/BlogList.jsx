@@ -8,6 +8,9 @@ const BlogList = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 12;
+
   const navigate = useNavigate();
 
   const fetchPosts = () => {
@@ -16,9 +19,7 @@ const BlogList = () => {
 
     fetch('https://jsonplaceholder.typicode.com/posts')
       .then((response) => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch posts');
-        }
+        if (!response.ok) throw new Error('Failed to fetch posts');
         return response.json();
       })
       .then((data) => {
@@ -36,8 +37,16 @@ const BlogList = () => {
   }, []);
 
   const handleSearch = () => {
+    setCurrentPage(1); // Reset to page 1 when searching
     console.log("Searching for:", searchTerm);
   };
+
+  const filteredPosts = posts.filter((post) =>
+    post.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const selectedPosts = filteredPosts.slice(startIndex, startIndex + itemsPerPage);
 
   return (
     <div className="blog-container">
@@ -58,10 +67,34 @@ const BlogList = () => {
       {error && <p className="error">{error}</p>}
 
       <div className="blog-list">
-        {!loading && !error && posts.map((post) => (
-          <BlogItem key={post.id} post={post} onReadMore={() => navigate(`/blog/${post.id}`)} />
-        ))}
+        {!loading && !error &&
+          selectedPosts.map((post) => (
+            <BlogItem
+              key={post.id}
+              post={post}
+              onReadMore={() => navigate(`/blog/${post.id}`)}
+            />
+          ))}
       </div>
+
+      {/* Pagination Controls */}
+      {!loading && !error && filteredPosts.length > itemsPerPage && (
+        <div className="pagination">
+          <button
+            onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
+            disabled={currentPage === 1}
+          >
+            Prev
+          </button>
+          <span>Page {currentPage}</span>
+          <button
+            onClick={() => setCurrentPage((p) => p + 1)}
+            disabled={startIndex + itemsPerPage >= filteredPosts.length}
+          >
+            Next
+          </button>
+        </div>
+      )}
     </div>
   );
 };
