@@ -7,6 +7,7 @@ import EditBlog from "./Pages/EditBlog";
 import Layout from "./Pages/Layout";
 import ViewBlog from "./Pages/ViewBlog";
 import BlogDetail from "./Pages/BlogDetail";
+import Signup from "./Pages/Signup";
 
 const MyRoutes = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -24,6 +25,7 @@ const MyRoutes = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/signin" element={<LoginPage />} />
+          <Route path="/signup" element={<Signup/>}/>
           <Route
             path="/"
             element={

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate, useNavigation } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const LoginPage = () => {
+const Signup = () => {
   const navigate = useNavigate();
   const api = import.meta.env.VITE_API;
   const [userName, setUserName] = useState("test");
@@ -11,28 +11,23 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${api}/user/signin`, {
+      const res = await axios.post(`${api}/user/signup`, {
         userName,
         password,
       });
       if (res.data.message) {
-        localStorage.setItem("token", res.data.id);
         alert(res.data.message);
-        navigate("/");
+        navigate("/signin");
       }
     } catch (e) {
-      alert(e?.response?.data?.message || "Login failed");
+      alert(e?.response?.data?.message || "Signin failed");
     }
-  };
-
-  const handleClick = () => {
-    navigate("/signup");
   };
 
   return (
     <div className="container-fluid d-flex flex-column justify-content-center align-items-center min-vh-100 min-vw-100 bg-light">
       <p className="d-flex justify-content-center align-item-center h2 pb-4">
-        Login form
+        Signup form
       </p>
       <div className="card p-4" style={{ width: "100%", maxWidth: "400px" }}>
         <form
@@ -64,14 +59,6 @@ const LoginPage = () => {
             />
           </div>
           <button type="submit" className="btn btn-primary w-100">
-            Sign in
-          </button>
-          <p className="mt-2">Or</p>
-          <button
-            type="button"
-            className="btn btn-primary w-100"
-            onClick={handleClick}
-          >
             Sign up
           </button>
         </form>
@@ -80,4 +67,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default Signup;
