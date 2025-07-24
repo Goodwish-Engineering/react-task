@@ -6,8 +6,8 @@ import { Context } from "../../Context/Context";
 const LoginPage = () => {
   const navigate = useNavigate();
   const api = import.meta.env.VITE_API;
-  const [userName, setUserName] = useState("test");
-  const [password, setPassword] = useState("test123");
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
   const { setIsLoggedIn } = useContext(Context);
 
   const handleSubmit = async (e) => {

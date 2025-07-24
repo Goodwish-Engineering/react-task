@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 const Signup = () => {
   const navigate = useNavigate();
   const api = import.meta.env.VITE_API;
-  const [userName, setUserName] = useState("test");
-  const [password, setPassword] = useState("test123");
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
