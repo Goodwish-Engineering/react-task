@@ -1,8 +1,5 @@
 const User = require("../Model/UserModel");
-const JWT_secretKey = process.env.JWT_SECRET;
-const jwt = require("jsonwebtoken");
 
-console.log(JWT_secretKey);
 
 exports.signin = async (req, res) => {
   const { userName, password } = req.body;

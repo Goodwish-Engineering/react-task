@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 
 const Layout = () => {
+  const navigate = useNavigate();
+
+  const handleClick = async () => {
+    localStorage.removeItem("token");
+    navigate("/signin");
+  };
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
@@ -20,11 +26,7 @@ const Layout = () => {
           <div className="collapse navbar-collapse" id="navbarText">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link
-                  className="nav-link active"
-                  aria-current="page"
-                  to="/home"
-                >
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
                 </Link>
               </li>
@@ -47,9 +49,9 @@ const Layout = () => {
             <span className="navbar-text">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <Link className="nav-link" to="/">
+                  <button className="nav-link" onClick={handleClick}>
                     Logout
-                  </Link>
+                  </button>
                 </li>
               </ul>
             </span>

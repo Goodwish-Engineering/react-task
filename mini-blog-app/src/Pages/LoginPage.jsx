@@ -11,14 +11,14 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${api}/signin`, {
+      const res = await axios.post(`${api}/user/signin`, {
         userName,
         password,
       });
       if (res.data.message) {
         localStorage.setItem("token", res.data.id);
         alert(res.data.message);
-        navigate("/home");
+        navigate("/");
       }
     } catch (e) {
       alert(e?.response?.data?.message || "Login failed");

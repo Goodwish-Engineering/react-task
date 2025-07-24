@@ -2,6 +2,7 @@ const express = require("express");
 const userRoute = require("./Route/UserRouter");
 const app = express();
 const cors = require("cors");
+const blogRouter = require("./Route/BlogRouter");
 
 require("dotenv").config();
 
@@ -21,4 +22,5 @@ app.listen(port, () => {
   console.log("Server is running on " + port);
 });
 
-app.use("/api", userRoute);
+app.use("/api/user", userRoute);
+app.use("/api/blog", blogRouter);

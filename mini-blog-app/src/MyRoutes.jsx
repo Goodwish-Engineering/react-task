@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "./Pages/LoginPage";
 import HomePage from "./Pages/HomePage";
 import CreateBlog from "./Pages/CreateBlog";
@@ -23,13 +23,18 @@ const MyRoutes = () => {
     <>
       <BrowserRouter>
         <Routes>
-          {!isLoggedIn && <Route path="/" element={<LoginPage />} />}
-          <Route path="/" element={<Layout />}>
-            <Route path="/home" element={<HomePage />} />
+          <Route path="/signin" element={<LoginPage />} />
+          <Route
+            path="/"
+            element={
+              isLoggedIn ? <Layout /> : <Navigate to="/signin" replace />
+            }
+          >
+            <Route index element={<HomePage />} />
             <Route path="/create" element={<CreateBlog />} />
             <Route path="/edit" element={<EditBlog />} />
             <Route path="/view" element={<ViewBlog />} />
-            <Route path="/detail" element={<BlogDetail/>}/>
+            <Route path="/detail" element={<BlogDetail />} />
           </Route>
         </Routes>
       </BrowserRouter>
