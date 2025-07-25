@@ -5,14 +5,22 @@ import "../styles/BlogDetail.css";
 const BlogDetail = () => {
   const { id } = useParams();
   const [post, setPost] = useState(null);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
-      .then(res => res.json())
-      .then(data => setPost(data));
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`Failed to fetch post with id ${id}`);
+        }
+        return res.json();
+      })
+      .then(data => setPost(data))
+      .catch(err => setError(err.message));
   }, [id]);
 
+  if (error) return <p>Error: {error}</p>;
   if (!post) return <p>Loading...</p>;
 
   return (

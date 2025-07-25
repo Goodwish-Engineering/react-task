@@ -36,10 +36,6 @@ const BlogList = () => {
     fetchPosts();
   }, []);
 
-  const handleSearch = () => {
-    setCurrentPage(1); // Reset to page 1 when searching
-    console.log("Searching for:", searchTerm);
-  };
 
   const filteredPosts = posts.filter((post) =>
     post.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -57,9 +53,11 @@ const BlogList = () => {
             type="text"
             placeholder="Search by title..."
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              setCurrentPage(1); // Reset to page 1 when searching
+            }}
           />
-          <button onClick={handleSearch}>Search</button>
         </div>
       </div>
 
