@@ -1,0 +1,130 @@
+@media (max-width: 480px) {
+  .blog-header h1 {
+    font-size: 1.1rem;
+  }
+  .blog-list {
+    gap: 0.5rem;
+  }
+  .blog-item {
+    padding: 0.7rem 0.3rem 0.6rem 0.3rem;
+    font-size: 0.95rem;
+  }
+  .blog-detail {
+    padding: 0.7rem 0.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  /* BlogList styles */
+  .blog-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 0.5rem 0.5rem 0.5rem;
+    margin-bottom: 1.2rem;
+  }
+  .blog-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .search-bar {
+    width: 100%;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem 0.5rem;
+    box-shadow: none;
+  }
+  .search-bar input {
+    width: 100%;
+    min-width: 0;
+    font-size: 1rem;
+  }
+  .blog-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  .pagination {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 1.2rem 0 0.5rem 0;
+  }
+  /* BlogItem styles */
+  .blog-item {
+    max-width: 100%;
+    min-width: 0;
+    padding: 1rem 0.5rem 0.8rem 0.5rem;
+    font-size: 0.98rem;
+  }
+  .blog-title {
+    font-size: 1.1rem;
+  }
+  .blog-body {
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+  }
+  .blog-button {
+    font-size: 0.98rem;
+    padding: 0.4rem 1rem;
+  }
+  /* BlogDetail styles */
+  .blog-detail {
+    max-width: 100%;
+    margin: 1.2rem 0.2rem;
+    padding: 1rem 0.5rem;
+    border-radius: 8px;
+  }
+  .blog-detail h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.7rem;
+  }
+  .blog-detail p {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  .blog-detail button {
+    font-size: 0.98rem;
+    padding: 0.4rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-header {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .blog-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+  .blog-item {
+    max-width: 100%;
+    font-size: 1rem;
+  }
+  .blog-detail {
+    max-width: 98%;
+    padding: 1.2rem 0.7rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .blog-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .blog-header h1 {
+    font-size: 2rem;
+  }
+  .blog-item {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .blog-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .blog-header h1 {
+    font-size: 2.2rem;
+  }
+} 

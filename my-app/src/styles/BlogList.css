@@ -1,0 +1,123 @@
+.blog-container {
+  padding: 2.5rem 1rem;
+  background: #EBFFD8;
+  min-height: 100vh;
+}
+
+.blog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #EBFFD8;
+  box-shadow: 0 2px 8px rgba(116, 141, 174, 0.08);
+  padding-top: 1rem;
+}
+
+.blog-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #748DAE;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.search-bar {
+  display: flex;
+  gap: 0.5rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(116, 141, 174, 0.10);
+  padding: 0.5rem 1rem;
+}
+
+.search-bar input {
+  padding: 0.5rem 1rem;
+  width: 220px;
+  border: 1px solid #9ECAD6;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.search-bar input:focus {
+  border: 1.5px solid #748DAE;
+}
+
+.search-bar button {
+  padding: 0.5rem 1.2rem;
+  background: linear-gradient(90deg, #748DAE 60%, #9ECAD6 100%);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 1px 4px rgba(116, 141, 174, 0.10);
+  transition: background 0.2s;
+}
+
+.search-bar button:hover {
+  background: linear-gradient(90deg, #9ECAD6 60%, #748DAE 100%);
+}
+
+.blog-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  margin-top: 1rem;
+}
+
+.error {
+  color: #d32f2f;
+  font-weight: 600;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 2.5rem 0 1.5rem 0;
+}
+
+.pagination button {
+  padding: 0.5rem 1.2rem;
+  background: linear-gradient(90deg, #748DAE 60%, #9ECAD6 100%);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(116, 141, 174, 0.10);
+  transition: background 0.2s, transform 0.15s;
+}
+
+.pagination button:disabled {
+  background: #d3e3f1;
+  color: #a0aab8;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.pagination button:not(:disabled):hover {
+  background: linear-gradient(90deg, #9ECAD6 60%, #748DAE 100%);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.pagination span {
+  font-size: 1.1rem;
+  color: #748DAE;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
